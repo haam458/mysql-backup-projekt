@@ -89,21 +89,21 @@ Kui tabelid on nähtavad siis see kinnitab edukat taastamist.
 
 ## Põhimõisted
 
-**Andmebaas (Database):**struktuur, kuhu salvestatakse andmed. Selles töös kasutati `testdb` andmebaasi andmete hoidmiseks.
+**Andmebaas (Database):** struktuur, kuhu salvestatakse andmed. Selles töös kasutati `testdb` andmebaasi andmete hoidmiseks.
 
-**MySQL:**relatsiooniline andmebaasihaldur. Kasutati andmebaasi loomiseks, haldamiseks ja taastamiseks.
+**MySQL:** relatsiooniline andmebaasihaldur. Kasutati andmebaasi loomiseks, haldamiseks ja taastamiseks.
 
-**Varukoopia (Backup):**andmete koopia, mis võimaldab taastamist. Selles töös loodi fail `backup.sql`.
+**Varukoopia (Backup):** andmete koopia, mis võimaldab taastamist. Selles töös loodi fail `backup.sql`.
 
-**Restore:**varukoopia tagasi laadimine andmebaasi.
+**Restore:** varukoopia tagasi laadimine andmebaasi.
 
-**Git:**versioonihaldussüsteem, mida kasutati failide jälgimiseks.
+**Git:** versioonihaldussüsteem, mida kasutati failide jälgimiseks.
 
-**GitHub:**veebikeskkond Git repositooriumide hoidmiseks.
+**GitHub:** veebikeskkond Git repositooriumide hoidmiseks.
 
-**VM (Virtual Machine):**virtuaalne arvuti, kus kogu süsteem töötas.
+**VM (Virtual Machine):** virtuaalne arvuti, kus kogu süsteem töötas.
 
-**mysqldump:**tööriist andmebaasi varundamiseks.
+**mysqldump:** tööriist andmebaasi varundamiseks.
 
 ## Kontrolli eeldused
 
