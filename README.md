@@ -30,7 +30,18 @@ Seejärel luuakse andmebaas:
 ```sql
 CREATE DATABASE testdb;
 ```
-Loodud andmebaasi nimega `testdb`, kasutatakse edasistes sammudes.
+See loob tühja andmebaasi nimega `testdb`, mida kasutatakse edasistes sammudes.
+
+Andmebaasi sisse loodi tabel:
+
+```sql
+CREATE TABLE `inimesed` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nimi` varchar(50) DEFULT NULL,
+PRIMERY KEY (`id`)
+);
+```
+Tabel `inimesed` salvestab kasutajate andmeid.
 
 ## Andmebaasi varukoopia tegemine
 
@@ -75,3 +86,29 @@ USE testdb;
 SHOW TABLES;
 ```
 Kui tabelid on nähtavad siis see kinnitab edukat taastamist.
+
+## Põhimõisted
+
+**Andmebaas (Database):**struktuur, kuhu salvestatakse andmed. Selles töös kasutati `testdb` andmebaasi andmete hoidmiseks.
+
+**MySQL:**relatsiooniline andmebaasihaldur. Kasutati andmebaasi loomiseks, haldamiseks ja taastamiseks.
+
+**Varukoopia (Backup):**andmete koopia, mis võimaldab taastamist. Selles töös loodi fail `backup.sql`.
+
+**Restore:**varukoopia tagasi laadimine andmebaasi.
+
+**Git:**versioonihaldussüsteem, mida kasutati failide jälgimiseks.
+
+**GitHub:**veebikeskkond Git repositooriumide hoidmiseks.
+
+**VM (Virtual Machine):**virtuaalne arvuti, kus kogu süsteem töötas.
+
+**mysqldump:**tööriist andmebaasi varundamiseks.
+
+## Kontrolli eeldused
+
+- MySQL teenus pead töötama
+- kasutajal peavad olema sudo õigused
+- andmebaas `testdb` peab olemas olema või loodud
+- `backup.sql` fail peab olemas olema enne taastamist
+
