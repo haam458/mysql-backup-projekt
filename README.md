@@ -6,17 +6,89 @@ Selle projekti eesmärk on kontrollitud keskkonnas läbi viia MySQL andmebaasi v
 
 Mille käigus:
 
-- luuakse MySQL andmebaas
-- tehakse sellest varukoopia
-- salvestatakse varukoopia GitHubi
-- taastatakse andmebaas varukoopia põhjal
+- loodi MySQL andmebaas
+- tehti sellest varukoopia
+- salvestati varukoopia GitHubi
+- taastati andmebaas varukoopia põhjal
 
 ## Kasutatud tehnoloogiad
 
 - Ubuntu Server VM (VirtualBox keskkonnas)
 - MySQL andmebaasiteenus
+- VS Code koodiredaktor
 - Git versioonihaldus
 - GitHub veebikeskkond
+
+## Keskonna ettevalmistamine
+
+Kasutati VirtualBox-i, Ubuntu serverit, MySQL andmebaasi ja VS Code-i.
+
+### Oracle VirtualBox
+
+- loodi virtuaalmasin nimega Ubuntu-server
+- masina tüüp Linux
+- version Ubuntu (64-bit)
+- ressursid: RAM 2048 MB, CPU 2 tuuma ja ketas 20 GB
+- seadistati võrk "Bridged Adapter" sest, et see valik tagas stabiilse internetiühenduse virtuaalmasinas
+
+### Ubuntu Server
+
+- paigaldati ISO fail "ubuntu-24.04.4-live-server-amd64"
+- valiti keel ja klaviatuur
+- seadistati kasutajanimi ja parool
+- kasutati automaatset partitsioneerimist
+
+Võrgu ühendust kontrolliti:
+
+```sql
+ping -c 3 8.8.8.8
+```
+Pärast paigaldust uuendati süsteemi:
+
+```sql
+sudo apt update && sudo apt upgrade -y
+```
+Paigaldati SSH teenus
+
+```sql
+sudo apt install openssh-server -y
+```
+Kontrolliti:
+
+```sql
+sudo systemctl status ssh
+```
+Vastuseks saadi `active(running)`
+
+### MySQL
+
+Paigaldati MySQL andmebaas:
+
+```sql
+sudo apt install mysql-server -y
+```
+Kontrolliti:
+
+```sql
+sudo systemctl status mysql
+```
+Vastuseks saadi `active (running)`
+
+ 
+### Visual Studio Code
+
+Serveri IP kontrollimiseks kasutatti järgnevat käsklust:
+
+```bash
+hostname -I
+```
+Ühendus loodi VS Codes:
+
+- installiti laiendus **Remote-SSH**
+- loodi ühendus `Ctrl + Shift + P` ja "Remote-SSH:Connect to Host"
+- sisestatakse `kasutaja@IP-aadress
+
+Pärast paigaldamist saadi Ubuntu serverit hallata nii lokaalselt VirtualBox konsoolist, kui ka läbi VS Code ja SSH ühenduse.
 
 ## Andmebaasi loomine
 
