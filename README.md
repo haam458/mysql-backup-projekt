@@ -114,12 +114,12 @@ Kõigepealt logiti MySQL serverisse:
 ```bash
 mysql -u root -p
 ```
-Seejärel luuakse andmebaas:
+Seejärel loodi andmebaas:
 
 ```sql
 CREATE DATABASE testdb;
 ```
-See loob tühja andmebaasi nimega `testdb`, mida kasutatakse edasistes sammudes.
+See lõi tühja andmebaasi nimega `testdb`, mida kasutatakse edasistes sammudes.
 
 Andmebaasi sisse loodi tabel:
 
@@ -130,11 +130,11 @@ CREATE TABLE `inimesed` (
 PRIMERY KEY (`id`)
 );
 ```
-Tabel `inimesed` salvestab kasutajate andmeid.
+Tabel `inimesed` salvestas kasutajate andmeid.
 
 ## Andmebaasi varukoopia tegemine
 
-Andmebaasist tehakse varukoopia käsuga:
+Andmebaasist tehti varukoopia käsuga:
 
 ```bash
 sudo mysqldump testdb > backup.sql
@@ -143,7 +143,7 @@ Selle tulemusel luuakse fail `backup.sql`, mis sisaldab kogu andmebaasi struktuu
 
 ## Varukoopia lisamine GitHubi
 
-Varukoopia lisatakse Git versioonihaldusesse ja saadetakse GitHubi:
+Varukoopia lisati Git versioonihaldusesse ja saadeti GitHubi:
 
 ```bash
 git add backup.sql
@@ -165,16 +165,16 @@ Seejärel loodi uus andmebaas MySQL-is:
 CREATE DATABASE taastatud_db;
 EXIT;
 ```
-Varukoopia taastatakse andmebaasi käsuga:
+Varukoopia taastati andmebaasis käsuga:
 
 ```bash
 mysql -u root -p taastatud_db < backup.sql
 ```
-See impordib kõik failis olevate tabelite loomise ja andmete lisamise käsud ning andmebaas taastatakse.
+See impordib kõik failis olevate tabelite loomise ja andmete lisamise käsud ning taastab andmebaasi.
 
 ## Kontrollimine
 
-Kontrollitakse, kas taastamine õnnestus:
+Kontrolliti, kas taastamine õnnestus:
 
 ```bash
 sudo mysql -u root -p
