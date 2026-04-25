@@ -74,7 +74,24 @@ sudo systemctl status mysql
 ```
 Vastuseks saadi `active (running)`
 
- 
+MySQL serverisse logiti sisse lokaalselt (localhosti kaudu):
+
+```sql
+sudo mysql
+```
+Muudeti autentimine paroolipõhiseks:
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'sinu_parool';
+FLUSH PRIVILEGES;
+```
+See järel sisestati käsk:
+
+```sql
+mysql -u root -p
+```
+Mis küsib eelnevalt sisestatud parooli.
+
 ### Visual Studio Code
 
 Serveri IP kontrollimiseks kasutatti järgnevat käsklust:
@@ -86,16 +103,16 @@ hostname -I
 
 - installiti laiendus **Remote-SSH**
 - loodi ühendus `Ctrl + Shift + P` ja "Remote-SSH:Connect to Host"
-- sisestatakse `kasutaja@IP-aadress
+- sisestatakse `kasutaja@IP-aadress`
 
 Pärast paigaldamist saadi Ubuntu serverit hallata nii lokaalselt VirtualBox konsoolist, kui ka läbi VS Code ja SSH ühenduse.
 
 ## Andmebaasi loomine
 
-Kõigepealt logitakse MySQL serverisse:
+Kõigepealt logiti MySQL serverisse:
 
 ```bash
-sudo mysql
+mysql -u root -p
 ```
 Seejärel luuakse andmebaas:
 
