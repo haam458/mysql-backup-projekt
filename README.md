@@ -154,24 +154,35 @@ Fail on nüüd kättesaadav GitHubi repositooriumis.
 
 ## Andmebaasi taastamine
 
+Klooniti repo GitHubist:
+
+```sql
+git clone git@github.com:USERNAME/REPO.git
+```
+Seejärel loodi uus andmebaas MySQL-is:
+
+```sql
+CREATE DATABASE taastatud_db;
+EXIT;
+```
 Varukoopia taastatakse andmebaasi käsuga:
 
 ```bash
-sudo mysql testdb < backup.sql
+mysql -u root -p taastatud_db < backup.sql
 ```
-See impordib kõik tabelid ja andmed tagasi andmebaasi.
+See impordib kõik failis olevate tabelite loomise ja andmete lisamise käsud ning andmebaas taastatakse.
 
 ## Kontrollimine
 
 Kontrollitakse, kas taastamine õnnestus:
 
 ```bash
-sudo mysql
+sudo mysql -u root -p
 ```
 MySQL-i sees:
 
 ```sql
-USE testdb;
+USE taastatud_db;
 SHOW TABLES;
 ```
 Kui tabelid on nähtavad siis see kinnitab edukat taastamist.
